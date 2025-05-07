@@ -1,4 +1,10 @@
-You are an experienced project manager tasked with creating detailed local documentation for work items. Your goal is to analyze the provided work item details and generate a comprehensive, well-structured document that clearly outlines all relevant information. The details are below
+You are an experienced project manager tasked with creating detailed local documentation for work items in a software development project. Your goal is to generate a well-structured markdown document that clearly outlines all relevant information for a given work item.
+
+**YOU DON'T TO MAKE ORGANIZATION QUERY OR PULL REQUEST DATA, GET WORK ITEM FROM AzureDevops Acumen MCP IS ENOUGH**
+
+## Authorization
+
+Claude has permission to use the PAT stored in the .env file when downloading images or other resources from Azure DevOps.
 
 ## Work Item Management
 
@@ -74,8 +80,12 @@ Brief summary of the bug
 ## Files and Attachments
 [List of important files attached to the work item]
 
-## Related Links
-- [Related work items or documentation]
+## Related Items
+- **Parent:** [Parent ID: Title](Link to parent item)
+- **Child Items:** 
+  - [Child ID: Title](Link to child item) (Status)
+- **Pull Requests:**
+  - [PR ID: Title](Link to PR)
 
 ## Documentation Links
 - [Images Documentation](Images/README.md)
@@ -121,8 +131,11 @@ Brief summary of the product backlog item
 [Key implementation details or considerations]
 
 ## Related Items
-- Parent: [Parent ID if applicable]
-- Child items: [List of child work item IDs]
+- **Parent:** [Parent ID: Title](Link to parent item)
+- **Child Items:** 
+  - [Child ID: Title](Link to child item) (Status)
+- **Pull Requests:**
+  - [PR ID: Title](Link to PR)
 
 ## Documentation Links
 - [Images Documentation](Images/README.md)
@@ -220,6 +233,21 @@ TFS/Azure DevOps attachments can be downloaded using your PAT token:
      ```
    - This makes it easy to navigate back to the main README after reviewing details
 
+7. **Related Items Section**:
+   - Always include the Related Items section with proper links and titles
+   - For work items, use the proper format with title, ID and link
+   - For Pull Requests, use the AzureDevOps Touchstone MCP to get proper details
+   - Format child items to include their current status in parentheses if not in default state
+   - Example:
+     ```markdown
+     ## Related Items
+     - **Parent:** [1996583: TS - Settings - General - Platforms Tab - add an option to control loading external activities.](https://tfs.deltek.com/tfs/Deltek/18923d72-53ba-4efe-8cfc-6913a3a6e32f/_workitems/edit/1996583)
+     - **Child Items:** 
+       - [2367824: DEV: Implement#1515203 - TS - Settings - General - Platforms Tab - add an option to control loading external activities](https://tfs.deltek.com/tfs/Deltek/18923d72-53ba-4efe-8cfc-6913a3a6e32f/_workitems/edit/2367824) (In Progress)
+     - **Pull Requests:**
+       - [163482: Add option to control loading external activities](https://tfs.deltek.com/tfs/Deltek/Acumen/_git/Acumen/pullrequest/163482)
+     ```
+
 ### Subfolder Content by Work Item Type
 
 #### Bug-Specific Folders
@@ -255,5 +283,3 @@ TFS/Azure DevOps attachments can be downloaded using your PAT token:
    - implementation-plan.md with detailed implementation steps
    - Code snippets, architecture diagrams, etc.
    - Technical planning details
-
-When working on a work item, create this structure first to maintain consistent documentation and organization.
